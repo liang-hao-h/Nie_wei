@@ -1,0 +1,285 @@
+/* pages/home/home.wxss */
+page {
+  background-color: #f5f5f5;
+  min-height: 100vh;
+}
+
+.container {
+  padding: 20rpx;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  width: 86%;
+  height: 72rpx;
+  margin: 0 auto 20rpx;
+  padding: 0 20rpx;
+  border: 15rpx solid white;
+  border-radius: 36rpx;
+  background-color: white;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.1), inset 0 0 0 2rpx #1E88E5;
+}
+
+.search-icon {
+  color: #1E88E5;
+  margin-right: 16rpx;
+}
+
+.search-input {
+  flex-grow: 1;
+  height: 100%;
+  border: none;
+  outline: none;
+  font-size: 28rpx;
+  padding: 0 10rpx;
+}
+
+.placeholder-style {
+  color: #999;
+}
+
+.mic-icon, .aux-icon {
+  color: #1E88E5;
+  margin-left: 20rpx;
+}
+
+.rounded-box {
+  background-color: white;
+  border-radius: 20rpx;
+  padding: 20rpx; /* 调整内边距与视频边距一致 */
+  margin: 0 auto 20rpx; /* 底部外边距20rpx，用于容器间距 */
+  width: 90%;
+  height: 340rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.rounded-box video {
+  width: 100%;
+  height: 340rpx; 
+  margin: 0;
+  border-radius: 10rpx;
+}
+
+/* 第二个圆角容器的单独样式 */
+.rounded-box-2 {
+  height: 400rpx;
+}
+
+/* 可视化展示容器样式 */
+.stats-container {
+  background-color: white;
+  border-radius: 20rpx;
+  padding: 20rpx;
+  margin: 0 auto 20rpx;
+  width: 90%;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* 数据容器样式 */
+.data-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  min-width: 150rpx;
+}
+
+/* 统计项样式 */
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 10rpx;
+}
+
+/* 统计数值样式 */
+.stat-value {
+  font-size: 48rpx;
+  font-weight: bold;
+  color: #1E88E5;
+  margin-bottom: 10rpx;
+}
+
+/* 待处理事件颜色 */
+.pending-value {
+  color: #e74c3c;
+}
+
+/* 处理完成事件颜色 */
+.completed-value {
+  color: #27ae60;
+}
+
+/* 统计标签样式 */
+.stat-label {
+  font-size: 28rpx;
+  color: #666;
+  text-align: center;
+}
+
+/* 事件处理容器样式 */
+.event-handle-container {
+  background-color: white;
+  border-radius: 20rpx;
+  padding: 20rpx;
+  margin: 0 auto 20rpx;
+  width: 90%;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* 事件处理项样式 */
+.event-handle-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15rpx 25rpx;
+  border-radius: 15rpx;
+  background-color: #f5f5f5;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin: 5rpx;
+}
+
+.event-handle-item:hover {
+  background-color: #e8e8e8;
+}
+
+/* 事件处理文本样式 */
+.event-handle-text {
+  font-size: 28rpx;
+  color: #333;
+}
+
+/* 事件处理标记样式 */
+.event-handle-tag {
+  font-size: 20rpx;
+  margin-left: 10rpx;
+}
+
+/* 今日事件标记颜色 */
+.today-tag {
+  color: #1E88E5;
+}
+
+/* 待处理事件标记颜色 */
+.pending-tag {
+  color: #e74c3c;
+}
+
+/* 处理完成事件标记颜色 */
+.completed-tag {
+  color: #27ae60;
+}
+
+/* 事件列表容器样式 */
+.event-list-container {
+  background-color: white;
+  border-radius: 20rpx;
+  padding: 20rpx;
+  margin: 0 auto 20rpx;
+  width: 90%;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.1);
+  max-height: 600rpx;
+  overflow-y: auto;
+  border-top: 2rpx solid #e0e0e0;
+  border-bottom: 2rpx solid #e0e0e0;
+}
+
+/* 事件项样式 */
+.event-item {
+  background-color: #f9f9f9;
+  border-radius: 15rpx;
+  padding: 20rpx;
+  margin-bottom: 15rpx;
+  transition: background-color 0.3s;
+  border-left: 6rpx solid #1E88E5;
+}
+
+/* 待处理事件边框颜色 */
+.event-item.pending-status {
+  border-left-color: #e74c3c;
+}
+
+/* 已完成事件边框颜色 */
+.event-item.completed-status {
+  border-left-color: #27ae60;
+}
+
+.event-item:hover {
+  background-color: #f0f0f0;
+}
+
+/* 事件头部样式 */
+.event-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10rpx;
+}
+
+/* 事件标题样式 */
+.event-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  flex-grow: 1;
+  margin-right: 10rpx;
+}
+
+/* 事件时间样式 */
+.event-time {
+  font-size: 24rpx;
+  color: #999;
+}
+
+/* 事件内容样式 */
+.event-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* 事件地点样式 */
+.event-location {
+  font-size: 26rpx;
+  color: #666;
+  flex-grow: 1;
+  margin-right: 10rpx;
+}
+
+/* 事件状态样式 */
+.event-status {
+  font-size: 24rpx;
+  padding: 8rpx 16rpx;
+  border-radius: 12rpx;
+  font-weight: bold;
+}
+
+/* 待处理状态样式 */
+.pending-status {
+  background-color: #ffebee;
+  color: #e74c3c;
+}
+
+/* 已完成状态样式 */
+.completed-status {
+  background-color: #e8f5e8;
+  color: #27ae60;
+}
+
+
+

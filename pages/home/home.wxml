@@ -1,0 +1,75 @@
+<!--pages/home/home.wxml-->
+<view class="container">
+  <view class="search-container">
+    <icon class="search-icon" type="search" size="24"></icon>
+    <input class="search-input" placeholder="搜索事件" placeholder-class="placeholder-style" value="{{searchValue}}"></input>
+    <image class="aux-icon" src="/images/麦克风.png" style="width: 24px; height: 24px;" bindtap="startVoiceInput"></image>
+  </view>
+  <view class="rounded-box">
+    <video src="http://flv4mp4.people.com.cn/videofile7//pvmsvideo/2021/12/16/QiangGuoLunTan-ZhouJing_bb603bf08843f480355ee52737b6a27c_ms_hd.mp4" controls></video>
+  </view>
+  <view class="rounded-box rounded-box-2">
+    <map id="map" 
+         longitude="{{longitude}}" 
+         latitude="{{latitude}}" 
+         scale="14" 
+         show-location 
+         style="width: 100%; height: 100%; border-radius: 20rpx;" 
+         subkey="{{mapKey}}"
+    ></map>
+  </view>
+  <!-- 可视化展示容器 -->
+  <view class="stats-container">
+    <view class="data-container">
+      <view class="stat-item">
+        <view class="stat-value">{{todayEvents}}</view>
+        <view class="stat-label">今日事件</view>
+      </view>
+    </view>
+    <view class="data-container">
+      <view class="stat-item">
+        <view class="stat-value pending-value">{{pendingEvents}}</view>
+        <view class="stat-label">待处理事件</view>
+      </view>
+    </view>
+    <view class="data-container">
+      <view class="stat-item">
+        <view class="stat-value completed-value">{{completedEvents}}</view>
+        <view class="stat-label">处理完成事件</view>
+      </view>
+    </view>
+  </view>
+  <!-- 事件处理容器 -->
+  <view class="event-handle-container">
+    <view class="event-handle-item" bindtap="viewTodayEvents">
+      <text class="event-handle-text">今日事件</text>
+      <text class="event-handle-tag today-tag">●</text>
+    </view>
+    <view class="event-handle-item" bindtap="viewPendingEvents">
+      <text class="event-handle-text">待处理</text>
+      <text class="event-handle-tag pending-tag">●</text>
+    </view>
+    <view class="event-handle-item" bindtap="viewCompletedEvents">
+      <text class="event-handle-text">已完成</text>
+      <text class="event-handle-tag completed-tag">●</text>
+    </view>
+  </view>
+
+  <!-- 事件列表容器 -->
+  <view class="event-list-container">
+    <view class="event-item {{item.status}}-status" 
+          wx:for="{{filteredEvents}}" 
+          wx:key="id" 
+          bindtap="viewEventDetail" 
+          data-event-id="{{item.id}}">
+      <view class="event-header">
+        <text class="event-title">{{item.title}}</text>
+        <text class="event-time">{{item.time}}</text>
+      </view>
+      <view class="event-content">
+        <text class="event-location">{{item.location}}</text>
+        <text class="event-status {{item.status}}-status">{{item.status === 'pending' ? '待处理' : '已完成'}}</text>
+      </view>
+    </view>
+  </view>
+</view>

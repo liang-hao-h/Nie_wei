@@ -1,0 +1,61 @@
+<!--pages/handle/handle.wxml-->
+<view class="container">
+  <!-- 事件处理容器 -->
+  <view class="handle-container">
+    <!-- 选择处理事件 -->
+    <view class="form-item">
+      <text class="form-label">选择事件</text>
+      <picker bindchange="onEventChange" value="{{eventIndex}}" range="{{eventList}}" range-key="title">
+        <view class="picker">
+          {{eventList[eventIndex].title || '请选择事件'}}
+        </view>
+      </picker>
+    </view>
+    
+    <!-- 选择日期 -->
+    <view class="form-item">
+      <text class="form-label">选择日期</text>
+      <picker mode="date" bindchange="onDateChange" value="{{date}}" start="2025-01-01" end="2025-12-31">
+        <view class="picker">
+          {{date || '请选择日期'}}
+        </view>
+      </picker>
+    </view>
+    
+    <!-- 选择位置 -->
+    <view class="form-item">
+      <text class="form-label">选择位置</text>
+      <view class="location-picker" bindtap="chooseLocation">
+        <text>{{location || '点击选择位置'}}</text>
+        <icon type="arrowright" size="16" color="#999"></icon>
+      </view>
+    </view>
+    
+    <!-- 上传处理完成照片 -->
+    <view class="form-item">
+      <text class="form-label">上传照片</text>
+      <view class="upload-container">
+        <view class="upload-item" wx:for="{{photos}}" wx:key="index">
+          <image src="{{item}}" mode="aspectFill"></image>
+          <icon type="clear" size="20" color="#fff" bindtap="removePhoto" data-index="{{index}}"></icon>
+        </view>
+        <view class="upload-btn" bindtap="uploadPhoto" wx:if="{{photos.length < 5}}">
+          <icon type="camera" size="32" color="#999"></icon>
+          <text>上传照片</text>
+        </view>
+      </view>
+    </view>
+    
+    <!-- 填写处理结果 -->
+    <view class="form-item">
+      <text class="form-label">填写结果</text>
+      <textarea class="textarea" placeholder="请输入处理结果" bindinput="onResultInput" value="{{result}}"></textarea>
+      <text class="word-count">{{result.length}}/200</text>
+    </view>
+    
+    <!-- 处理完成按钮 -->
+    <view class="submit-btn" bindtap="submitHandle">
+      <text>处理完成</text>
+    </view>
+  </view>
+</view>

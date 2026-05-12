@@ -1,0 +1,32 @@
+<!--pages/login/login.wxml-->
+<view class="login-container">
+  <view class="login-header">
+    <text class="login-title">涅维深瞰·监控平台</text>
+    <text class="login-subtitle">欢迎登录</text>
+  </view>
+  
+  <view class="login-form">
+    <view class="input-group">
+      <text class="input-label">账号</text>
+      <input class="input-field" placeholder="请输入账号" value="{{username}}" bindinput="onUsernameInput" />
+    </view>
+    
+    <view class="input-group">
+      <text class="input-label">密码</text>
+      <input class="input-field" placeholder="请输入密码" password="true" value="{{password}}" bindinput="onPasswordInput" />
+    </view>
+    
+    <!-- 记住我选项 -->
+    <view class="remember-me">
+      <checkbox class="remember-checkbox" checked="{{rememberMe}}" bindtap="onRememberMeToggle" />
+      <text class="remember-text">记住我</text>
+    </view>
+    
+    <button class="login-btn" type="primary" bindtap="onLogin">登录</button>
+    
+    <button class="fingerprint-btn" type="default" bindtap="onFingerprintLogin">
+      <image class="fingerprint-icon" src="/images/指纹.png" mode="aspectFit"></image>
+      <text class="fingerprint-text">指纹登录</text>
+    </button>
+  </view>
+</view>
